@@ -23,8 +23,6 @@ RUN apt-get install -qy \
     npm \
 	nodejs 
 
-COPY . /
-
 # ENV PATH="/usr/local/bin/:${PATH}"
 RUN ln -fs /usr/bin/nodejs /usr/local/bin/node
 
@@ -39,6 +37,7 @@ RUN npm install -g yetify@0.0.1
 
 RUN npm install
 
+COPY . /
 
 RUN ["/bin/sh", "./scripts/generate-ssl-certs.sh"]
 
