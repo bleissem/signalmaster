@@ -41,6 +41,8 @@ COPY . /
 
 RUN ["/bin/sh", "./scripts/generate-ssl-certs.sh"]
 
-EXPOSE 443, 80, 8888
+RUN ["/usr/bin/npm", "i"]
+
+EXPOSE 8888
 
 ENTRYPOINT ["/usr/local/bin/node", "./server.js"]
